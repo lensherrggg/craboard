@@ -1,4 +1,4 @@
-//! 低饱和暖色主题。明度层级参考 Solarized：大面积底色低对比，
+//! 低饱和主题。明度层级参考 Solarized：大面积底色低对比，
 //! 语义色只用于小面积标记；新增主题时在 `state::ThemeKind` 和这里各加一处。
 
 use craboard::state::ThemeKind;
@@ -82,6 +82,120 @@ pub const WARM_PAPER: Palette = Palette {
     warn: Color32::from_rgb(134, 99, 42),
 };
 
+/// 青灰：冷调深灰，降低蓝光感但不发蓝。
+pub const SLATE_NIGHT: Palette = Palette {
+    bg: Color32::from_rgb(24, 27, 30),
+    side: Color32::from_rgb(29, 32, 36),
+    surface: Color32::from_rgb(36, 40, 45),
+    column: Color32::from_rgb(32, 36, 40),
+    field: Color32::from_rgb(46, 51, 57),
+    hover: Color32::from_rgb(54, 60, 67),
+    line: Color32::from_rgb(64, 71, 79),
+    text: Color32::from_rgb(198, 207, 214),
+    dim: Color32::from_rgb(148, 159, 169),
+    accent: Color32::from_rgb(139, 164, 187),
+    on_color: Color32::from_rgb(22, 28, 34),
+    done: Color32::from_rgb(139, 172, 148),
+    doing: Color32::from_rgb(137, 166, 190),
+    red: Color32::from_rgb(200, 128, 124),
+    warn: Color32::from_rgb(202, 170, 116),
+};
+
+/// 雾青：冷调浅灰，接近阴天窗边的纸面。
+pub const SLATE_PAPER: Palette = Palette {
+    bg: Color32::from_rgb(235, 239, 242),
+    side: Color32::from_rgb(227, 232, 236),
+    surface: Color32::from_rgb(242, 246, 248),
+    column: Color32::from_rgb(224, 230, 234),
+    field: Color32::from_rgb(218, 225, 230),
+    hover: Color32::from_rgb(208, 217, 223),
+    line: Color32::from_rgb(196, 206, 213),
+    text: Color32::from_rgb(58, 68, 76),
+    dim: Color32::from_rgb(88, 101, 111),
+    accent: Color32::from_rgb(72, 107, 130),
+    on_color: Color32::from_rgb(248, 251, 252),
+    done: Color32::from_rgb(68, 108, 82),
+    doing: Color32::from_rgb(66, 102, 132),
+    red: Color32::from_rgb(158, 76, 68),
+    warn: Color32::from_rgb(128, 98, 44),
+};
+
+/// 苔夜：绿灰深色，像背阴处的苔藓。
+pub const MOSS_NIGHT: Palette = Palette {
+    bg: Color32::from_rgb(24, 28, 25),
+    side: Color32::from_rgb(29, 34, 30),
+    surface: Color32::from_rgb(36, 41, 36),
+    column: Color32::from_rgb(32, 37, 33),
+    field: Color32::from_rgb(46, 52, 46),
+    hover: Color32::from_rgb(55, 62, 54),
+    line: Color32::from_rgb(65, 73, 64),
+    text: Color32::from_rgb(199, 207, 196),
+    dim: Color32::from_rgb(150, 160, 148),
+    accent: Color32::from_rgb(157, 179, 130),
+    on_color: Color32::from_rgb(24, 30, 21),
+    done: Color32::from_rgb(156, 184, 136),
+    doing: Color32::from_rgb(138, 166, 179),
+    red: Color32::from_rgb(200, 128, 116),
+    warn: Color32::from_rgb(199, 170, 108),
+};
+
+/// 苔纸：绿灰浅色，接近旧书纸。
+pub const MOSS_PAPER: Palette = Palette {
+    bg: Color32::from_rgb(237, 240, 232),
+    side: Color32::from_rgb(229, 233, 224),
+    surface: Color32::from_rgb(244, 247, 239),
+    column: Color32::from_rgb(226, 231, 219),
+    field: Color32::from_rgb(219, 225, 211),
+    hover: Color32::from_rgb(209, 216, 200),
+    line: Color32::from_rgb(197, 205, 187),
+    text: Color32::from_rgb(64, 72, 58),
+    dim: Color32::from_rgb(96, 105, 88),
+    accent: Color32::from_rgb(94, 117, 64),
+    on_color: Color32::from_rgb(250, 252, 246),
+    done: Color32::from_rgb(68, 106, 64),
+    doing: Color32::from_rgb(68, 102, 128),
+    red: Color32::from_rgb(158, 76, 62),
+    warn: Color32::from_rgb(130, 98, 42),
+};
+
+/// 暮紫：低饱和紫灰深色，像日落后的一小段天空。
+pub const MAUVE_NIGHT: Palette = Palette {
+    bg: Color32::from_rgb(28, 25, 30),
+    side: Color32::from_rgb(33, 30, 36),
+    surface: Color32::from_rgb(40, 37, 44),
+    column: Color32::from_rgb(36, 33, 40),
+    field: Color32::from_rgb(51, 47, 56),
+    hover: Color32::from_rgb(61, 56, 67),
+    line: Color32::from_rgb(72, 66, 79),
+    text: Color32::from_rgb(211, 202, 215),
+    dim: Color32::from_rgb(161, 152, 167),
+    accent: Color32::from_rgb(186, 150, 171),
+    on_color: Color32::from_rgb(32, 24, 30),
+    done: Color32::from_rgb(146, 178, 150),
+    doing: Color32::from_rgb(142, 160, 192),
+    red: Color32::from_rgb(204, 126, 132),
+    warn: Color32::from_rgb(198, 166, 111),
+};
+
+/// 藕荷：低饱和紫灰浅色，带一点粉调但不过暖。
+pub const MAUVE_PAPER: Palette = Palette {
+    bg: Color32::from_rgb(241, 236, 241),
+    side: Color32::from_rgb(233, 228, 234),
+    surface: Color32::from_rgb(247, 242, 248),
+    column: Color32::from_rgb(231, 225, 232),
+    field: Color32::from_rgb(226, 219, 227),
+    hover: Color32::from_rgb(216, 208, 218),
+    line: Color32::from_rgb(205, 196, 207),
+    text: Color32::from_rgb(72, 64, 74),
+    dim: Color32::from_rgb(104, 94, 106),
+    accent: Color32::from_rgb(145, 96, 126),
+    on_color: Color32::from_rgb(253, 247, 252),
+    done: Color32::from_rgb(74, 110, 80),
+    doing: Color32::from_rgb(72, 102, 134),
+    red: Color32::from_rgb(160, 76, 86),
+    warn: Color32::from_rgb(132, 98, 44),
+};
+
 thread_local! {
     static ACTIVE_KIND: Cell<ThemeKind> = const { Cell::new(ThemeKind::WarmNight) };
     static ACTIVE: Cell<Palette> = const { Cell::new(WARM_NIGHT) };
@@ -91,11 +205,20 @@ pub fn palette_of(kind: ThemeKind) -> Palette {
     match kind {
         ThemeKind::WarmNight => WARM_NIGHT,
         ThemeKind::WarmPaper => WARM_PAPER,
+        ThemeKind::SlateNight => SLATE_NIGHT,
+        ThemeKind::SlatePaper => SLATE_PAPER,
+        ThemeKind::MossNight => MOSS_NIGHT,
+        ThemeKind::MossPaper => MOSS_PAPER,
+        ThemeKind::MauveNight => MAUVE_NIGHT,
+        ThemeKind::MauvePaper => MAUVE_PAPER,
     }
 }
 
 pub fn is_dark(kind: ThemeKind) -> bool {
-    matches!(kind, ThemeKind::WarmNight)
+    matches!(
+        kind,
+        ThemeKind::WarmNight | ThemeKind::SlateNight | ThemeKind::MossNight | ThemeKind::MauveNight
+    )
 }
 
 pub fn active() -> Palette {

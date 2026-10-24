@@ -67,6 +67,12 @@ pub enum ThemeKind {
     #[default]
     WarmNight,
     WarmPaper,
+    SlateNight,
+    SlatePaper,
+    MossNight,
+    MossPaper,
+    MauveNight,
+    MauvePaper,
 }
 
 /// 关闭主窗口（标题栏 ×、Alt+F4、任务栏关闭）时的动作。托盘菜单的「退出」不受影响。
@@ -93,12 +99,27 @@ impl CloseBehavior {
 }
 
 impl ThemeKind {
-    pub const ALL: [Self; 2] = [Self::WarmNight, Self::WarmPaper];
+    pub const ALL: [Self; 8] = [
+        Self::WarmNight,
+        Self::WarmPaper,
+        Self::SlateNight,
+        Self::SlatePaper,
+        Self::MossNight,
+        Self::MossPaper,
+        Self::MauveNight,
+        Self::MauvePaper,
+    ];
 
     pub fn label(self) -> &'static str {
         match self {
             Self::WarmNight => "暖夜",
             Self::WarmPaper => "暖纸",
+            Self::SlateNight => "青灰",
+            Self::SlatePaper => "雾青",
+            Self::MossNight => "苔夜",
+            Self::MossPaper => "苔纸",
+            Self::MauveNight => "暮紫",
+            Self::MauvePaper => "藕荷",
         }
     }
 }

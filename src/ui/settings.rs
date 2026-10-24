@@ -106,7 +106,7 @@ pub fn settings_modal(app: &mut App, ctx: &egui::Context) {
                         section(ui, "常规");
                         font_size_row(ui, &mut draft.font_size);
                         theme_row(ui, &mut draft.theme);
-                        hint(ui, "低饱和暖色，参考 Solarized 的明度层级；切换即时生效");
+                        hint(ui, "低饱和配色，参考 Solarized 的明度层级；切换即时生效");
                         changed |= toggle_row(ui, "时钟显示秒", &mut draft.show_seconds);
                         changed |= toggle_row(ui, "开机自启", &mut draft.autostart);
                         hint(
@@ -493,20 +493,20 @@ fn font_size_row(ui: &mut egui::Ui, value: &mut FontSize) {
 }
 
 fn theme_row(ui: &mut egui::Ui, value: &mut ThemeKind) {
-    ui.horizontal(|ui| {
-        ui.label(
-            RichText::new("主题")
-                .size(fs(12.0))
-                .color(theme::active().text),
-        );
-        ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
-            ui.spacing_mut().item_spacing = Vec2::new(4.0, 2.0);
-            for kind in ThemeKind::ALL.iter().rev() {
-                if preset_chip(ui, kind.label().to_owned(), *value == *kind).clicked() {
-                    *value = *kind;
-                }
+    ui.label(
+        RichText::new("主题")
+            .size(fs(12.0))
+            .color(theme::active().text),
+    );
+    ui.add_space(3.0);
+    // 主题变多后单行放不下，允许按窗口宽度换行
+    ui.horizontal_wrapped(|ui| {
+        ui.spacing_mut().item_spacing = Vec2::new(4.0, 4.0);
+        for kind in ThemeKind::ALL {
+            if preset_chip(ui, kind.label().to_owned(), *value == kind).clicked() {
+                *value = kind;
             }
-        });
+        }
     });
 }
 

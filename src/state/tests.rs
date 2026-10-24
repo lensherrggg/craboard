@@ -465,7 +465,14 @@ fn theme_defaults_warm_night_and_round_trips() {
     assert!(json.contains("\"theme\":\"warm_paper\""));
     let back: Settings = serde_json::from_str(&json).unwrap();
     assert_eq!(back.theme, ThemeKind::WarmPaper);
-    assert_eq!(ThemeKind::ALL.len(), 2);
+    assert_eq!(ThemeKind::ALL.len(), 8);
+
+    for kind in ThemeKind::ALL {
+        st.theme = kind;
+        let json = serde_json::to_string(&st).unwrap();
+        let back: Settings = serde_json::from_str(&json).unwrap();
+        assert_eq!(back.theme, kind);
+    }
 }
 
 #[test]
