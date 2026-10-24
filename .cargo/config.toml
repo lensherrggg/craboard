@@ -1,0 +1,7 @@
+# 只对 craboard 项目生效的依赖镜像（官方 index.crates.io 在本机 5.6s+ 且频繁超时）
+[source.crates-io]
+replace-with = 'ustc'
+
+# 清华源的 config.json 仍指向 static.crates.io（本机 TLS 握手失败），中科大源自带下载端点
+[source.ustc]
+registry = "sparse+https://mirrors.ustc.edu.cn/crates.io-index/"

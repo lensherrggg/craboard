@@ -1,0 +1,26 @@
+# Rust 构建输出
+/target/
+**/*.rs.bk
+
+# 本地发布包（zip 与已编译 exe）
+/dist/
+
+# 开发期真机验证脚本、截图和本机数据备份
+/.probe/
+/shot.png
+
+# Windows 文件权限修复的备份与报告
+/.acl-recovery/
+
+# 运行期配置与日志（数据目录默认在 %APPDATA%\craboard）
+/experimental.json
+/crash.log
+*.db-wal
+*.db-shm
+
+# 编辑器/系统杂物
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+desktop.ini
