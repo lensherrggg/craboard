@@ -25,7 +25,7 @@ Craboard 是一个 Windows 本地任务看板。设计优先级从高到低：
 │                  │                                             │
 │        ┌─────────┴──────────┐                                  │
 │        ▼                    ▼                                  │
-│   state.rs             storage/                                │
+│   state/               storage/                                │
 │   数据模型/设置          TaskStore + TaskRepository             │
 │   JSON 原子写            SQLite / JSON / Memory                 │
 └────────────────────────────────────────────────────────────────┘
@@ -33,12 +33,12 @@ Craboard 是一个 Windows 本地任务看板。设计优先级从高到低：
 
 | 模块 | 职责 |
 | --- | --- |
-| `state.rs` | `TodoItem`、`Repeat`、`Settings`、`View` 等模型；日期解析；`state.json` 读写与 `sanitize`。 |
+| `state/` | `TodoItem`、`Repeat`、`Settings`、`View` 等模型（拆成 `mod` / `settings` / `time`）；日期解析；`state.json` 读写与 `sanitize`。 |
 | `storage/` | 存储抽象 `TaskStore`、差异同步 `TaskRepository`、SQLite / JSON / 内存三种后端、旧数据迁移。 |
 | `core/mod.rs` | `Core`：持有设置与任务，提供增删改、状态迁移、列表/视图投影、总结调度和保存。 |
 | `core/edit.rs` | `TaskEditDraft`：新建/编辑弹窗的校验与提交事务，含子项清洗。 |
 | `core/view.rs` | 纯函数投影：`TaskInfo`、今天口径、四象限、排序、今日进度、即时总结文本。 |
-| `ui/` | egui 界面：board（主框架/列表/四象限）、kanban（看板/编辑弹窗）、settings、reminder、theme。 |
+| `ui/` | egui 界面：board/（主框架/列表/四象限/侧栏/今日进度）、kanban（看板/编辑弹窗）、settings、reminder、theme。 |
 | `main.rs` | GUI 生命周期、托盘、全局快捷键、自动保存、外部改动监听。 |
 | `build.rs` | 把 `assets/craboard.ico` 和多尺寸元数据编译成 Windows 资源，链接进 exe。 |
 | `win32.rs` | 少量 Win32 调用：窗口查找、显示/隐藏、屏幕边界、DWM 样式、光标/工作区、开机启动项。 |

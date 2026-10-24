@@ -267,10 +267,10 @@ craboard-cli mcp
 src/
   main.rs           GUI 入口：窗口、托盘、全局快捷键、自动保存
   win32.rs          少量 Win32 调用：窗口样式、可见性、屏幕边界、开机启动项
-  state.rs          数据模型、日期解析、设置读写与规范化
+  state/            任务/设置模型、日期解析、状态迁移与 state.json 读写
   storage/          TaskStore 抽象、SQLite / JSON / 内存后端
   core/             业务规则：任务增删改、状态迁移、周期、视图投影、总结调度
-  ui/               egui 界面：board / kanban / settings / reminder / theme
+  ui/               egui 界面：board/（列表/四象限/侧栏/今日进度）、kanban、settings、reminder、theme
   mcp.rs            stdio MCP 服务
   bin/craboard-cli.rs  命令行入口
 ```

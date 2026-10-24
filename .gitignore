@@ -12,6 +12,9 @@
 # Windows 文件权限修复的备份与报告
 /.acl-recovery/
 
+# 本会话的 agent 交接记录
+/AGENT_NOTES.md
+
 # 运行期配置与日志（数据目录默认在 %APPDATA%\craboard）
 /experimental.json
 /crash.log
