@@ -38,7 +38,9 @@ pub(super) fn today_progress(
                 .rect
                 .height()
             });
-            6.0 + title_h + gap + 4.0 + 3.0 + gap + 4.0 + small_h + 6.0
+            // 手算高度总会比实际排版少一到两行间距；多留两行，避免字体度量
+            // 偏差把卡片下沿顶到窗口边缘
+            6.0 + title_h + gap + 4.0 + 3.0 + gap + 4.0 + small_h + 6.0 + 2.0 * gap
         };
         ui.allocate_ui_with_layout(
             Vec2::new(ui.available_width(), h),

@@ -112,7 +112,11 @@ pub fn draw(app: &mut App, ui: &mut egui::Ui) {
     let now = chrono::Local::now().naive_local();
     let infos = task_infos(app.st());
     let avail = ui.available_size();
-    let col_w = ((avail.x - GAP * 3.0 - 24.0) / 4.0).clamp(230.0, 340.0);
+    // 左右留一样的边；列宽到上限后把剩余空间平均分到两侧，而不是全堆在右边
+    const SIDE: f32 = 12.0;
+    let col_w = ((avail.x - GAP * 3.0 - SIDE * 2.0) / 4.0).clamp(230.0, 340.0);
+    let content_w = col_w * 4.0 + GAP * 3.0;
+    let side = ((avail.x - content_w) / 2.0).max(4.0);
     let col_h = (avail.y - 16.0).max(140.0);
     let mut rects: Vec<(KCol, Rect)> = Vec::with_capacity(4);
     let mut edit_id = None;
@@ -136,12 +140,20 @@ pub fn draw(app: &mut App, ui: &mut egui::Ui) {
             .auto_shrink([false, false])
             .show(ui, |ui| {
                 ui.horizontal_top(|ui| {
-                    ui.spacing_mut().item_spacing = Vec2::new(GAP, 0.0);
-                    ui.add_space(4.0);
-                    for col in KCol::ALL {
+                    // 列间距自己加，避免 item_spacing 让左右留白不对称
+                    ui.spacing_mut().item_spacing = Vec2::ZERO;
+                    ui.add_space(side);
+                    for (i, col) in KCol::ALL.into_iter().enumerate() {
+                        if i > 0 {
+                            ui.add_space(GAP);
+                        }
                         let rect =
                             column(app, ui, col, &infos, now, col_w, Some(col_h), &mut edit_id);
                         rects.push((col, rect));
+                    }
+                    // 列宽超出可用空间时给横向滚动留一点收尾边距
+                    if content_w > avail.x {
+                        ui.add_space(side);
                     }
                 });
             });

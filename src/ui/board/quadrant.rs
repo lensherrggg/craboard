@@ -19,7 +19,12 @@ pub(super) fn quadrant_view(app: &mut App, ui: &mut egui::Ui) {
 
     Frame::new()
         .fill(Color32::TRANSPARENT)
-        .inner_margin(egui::Margin::symmetric(14, 6))
+        .inner_margin(egui::Margin {
+            left: 14,
+            right: 14,
+            top: 6,
+            bottom: 14,
+        })
         .show(ui, |ui| {
             let compact = ui.available_width() < fs(190.0);
             ui.horizontal(|ui| {

@@ -151,7 +151,7 @@ fn left_bar(app: &mut App, ui: &mut egui::Ui) {
                     left: 8,
                     right: 8,
                     top: 10,
-                    bottom: 8,
+                    bottom: 14,
                 }),
         )
         .show(ui, |ui| {
